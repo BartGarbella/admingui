@@ -2,18 +2,8 @@
 
 var adminControllers = angular.module('adminControllers',[]);
 
-//	include Controller (inactive)
-
-/*paymentAdminApp.controller('includeCtrl',['$scope', function($scope){
-	$scope.templates = 
-		[ 	{name: 'navbar', url: 'partials/navbar.html'},
-			{name: 'navbarblack', url: 'partials/navbarblack.html'},
-		];
-	$scope.template = $scope.templates[0];
-}]);*/
-
 adminControllers.controller('NavCtrl', ['$scope','$location', function($scope,$location){
-	$scope.breadcrumbs = [];
+
 	$scope.menu = [
 			{text: 'Admin Panel', href:'/#/adminpanel'},
 			{text: 'Principal', href:'/#/princial', children: [
@@ -35,50 +25,9 @@ adminControllers.controller('NavCtrl', ['$scope','$location', function($scope,$l
 			{text: 'Logout', href:'/#/login'}
 
 	]
-
 	
 }]);
 
-adminControllers.directive('navMenu', ['$parse', '$compile', function($parse, $compile) {
-    return {
-        restrict: 'C', //Class
-        scope:true,
-        link: function (scope, element, attrs){
-            scope.selectedNode = null;
-
-            scope.$watch( attrs.menuData, function(val)
-            {
-                var template = angular.element('<ul id="parentTreeNavigation"><li ng-repeat="node in ' + attrs.menuData + '" ng-class=""><a ng-href="{{node.href}}">{{node.text}}</a><sub-navigation-tree></sub-navigation-tree></li></ul>');
-                var linkFunction = $compile(template);
-                linkFunction(scope);
-                element.html(null).append(template);
-            }, true );
-        }
-    };
-}])
-.directive('subNavigationTree', ['$compile', function($compile)
-{
-    return {
-        restrict: 'E', //Element
-        scope:true,
-        link: function (scope, element, attrs)
-        {
-            scope.tree = scope.node;
-
-            if(scope.tree.children && scope.tree.children.length )
-            {
-                var template = angular.element('<ul class="dropdown "><li ng-repeat="node in tree.children" node-id={{node.' + attrs.nodeId + '}}  ng-class=""><a ng-href="{{node.href}}"  target="{{node.target}}" ng-bind-html-unsafe="node.text">{{node.text}}</a><sub-navigation-tree tree="node"></sub-navigation-tree></li></ul>');
-                var linkFunction = $compile(template);
-                linkFunction(scope);
-                element.replaceWith( template );
-            }
-            else
-            {
-                element.remove();
-            }
-        }
-     };
-}]);
 
 adminControllers.controller('LoginCtrl', ['$scope', '$http', '$log', '$location',
  	function($scope, $http, $log, $location){
@@ -111,7 +60,6 @@ adminControllers.controller('LoginCtrl', ['$scope', '$http', '$log', '$location'
 			error(function(data, status, headers, config) {
 				$log.info("logout failed")
 			})
-
 }])
 
 adminControllers.controller('CurrencyCtrl', ['$scope', '$http', '$log', '$location',
@@ -142,30 +90,6 @@ adminControllers.controller('AdminCtrl', ['$scope', '$http', '$log', '$location'
 			error(function(data){
 				$log.error("AP user call failed")
 			});
-
-
-		$scope.principals = [
-		{'id': '1', 'name': 'firma1','author': 'author1' },
-		{'id': '2', 'name': 'firma2','author': 'author2' },
-		{'id': '3', 'name': 'firma3','author': 'author3' },
-		];	
-
-		/*$http.get("http://localhost:8080/v1/princial").
-			success(function(data){
-				$log.info(data.Response)
-				$scope.principals = data.Response
-			}).
-			error(function(data){
-				$log.error("AP user call failed")
-			});*/
-
-
-		// Function: Add New Principal
-
-		
-
-
-
 }])
 
 
@@ -203,29 +127,9 @@ adminControllers.controller('PrincipalCtrl', ['$scope', '$http', '$log', '$locat
 				})
 
 
-			}
-			
-			else {
-				alert("Enter new Principal Name")
+			} else {
+				alert("Enter new Principal Name");
 			}
 		};
 
-		$scope.test = function(id){
-
-			var bla = "editorEnabled"+id
-			$log.info(bla)
-			bla = !bla
-		}
-		/*$scope.modPrincipalFunc = function(){
-			if ($scope.modPrincipal != ""){
-				$http({
-					url: 'http://localhost:8080/v1/principal/'
-				})
-			}
-		};*/
-
-
-
-
-	
 }]);

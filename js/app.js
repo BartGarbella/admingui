@@ -31,7 +31,7 @@ paymentAdminApp.config(['$routeProvider', '$httpProvider',
 	}
 ]);
 
-// this interceptor is used for auth checking on every req
+// this interceptor is used for auth checking on every http req
 paymentAdminApp.factory('httpInterceptor', ['$q', '$location', '$log', function($q, $location, $log) {
 	return {
 

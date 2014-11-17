@@ -6,3 +6,57 @@
 body {
  
 }
+
+nav {
+	margin-bottom: 2em;
+	padding: 1em;
+}
+
+nav a {
+   	color: #e0e0e0;
+	text-decoration: none;
+}
+
+nav a:hover {
+   	color: #fff;
+	text-decoration: none;
+}
+
+nav ul {
+    z-index: 1000;
+}
+nav ul:after {
+	clear: both;
+    display: block;
+	content: " ";
+    visibility: hidden;
+}
+nav ul,nav ul li{
+    background-color: #06c;
+}
+nav ul li {
+    list-style: none;
+    float:left;
+}
+nav ul li a {
+    color: #e0e0e0;
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+}
+nav ul li:hover > ul {
+   visibility: visible;
+}
+nav ul li ul{
+    padding:0px;
+    display: inline;
+    visibility: hidden;
+    position: absolute;
+}
+nav ul li ul li{
+    float: none;
+}
+nav ul li ul li a:hover{
+    color: #fff;
+    text-decoration: none;
+}

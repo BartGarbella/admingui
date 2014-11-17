@@ -1,0 +1,10 @@
+<ul class="pdnav">
+	<li ng-repeat="node in menu">
+		<a ng-href="{{node.href}}">{{node.text}}</a>
+		<ul class="pdsubnav">
+			<li ng-repeat="child in node.children">
+				<a ng-href="{{child.href}}">{{child.text}}</a>
+			</li>
+		</ul>
+	</li>
+</ul>
