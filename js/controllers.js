@@ -210,11 +210,10 @@ adminControllers.controller('PrincipalCtrl', ['$scope', '$http', '$log', '$locat
 			}
 		};
 
-		$scope.test = function(id){
+		$scope.test = function(editorEnabled){
 
-			var bla = "editorEnabled"+id
-			$log.info(bla)
-			bla = !bla
+			return !editorEnabled
+
 		}
 		/*$scope.modPrincipalFunc = function(){
 			if ($scope.modPrincipal != ""){

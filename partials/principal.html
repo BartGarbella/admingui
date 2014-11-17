@@ -41,14 +41,14 @@
 				<div>
 					<tr>
 						<td>{{principal.ID}}</td>
-						<td ng-hide="editorEnabled">{{principal.Name}}
+						<td ng-hide="editorEnabled{{principal.ID}}">{{principal.Name}}
 						</td>
-						<td ng-show="editorEnabled">
+						<td ng-show="editorEnabled{{principal.ID}}">
 							<input value="{{principal.Name}}"/>
 						</td>
 						<td>{{principal.CreatedBy}}</td>
 						<td>{{principal.Created}}</td>
-						<td><button type="submit" class="btn btn-default" ng-click="editorEnabled">Modify</button></td>
+						<td><button type="submit" class="btn btn-default" ng-click="editorEnabled4=test(editorEnabled4)">Modify</button></td>
 
 					</tr>				
 				</div>
