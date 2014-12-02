@@ -1,6 +1,4 @@
-<div ng-controller="NavCtrl">
-	<nav class="nav-menu" menu-data="menu"></nav>
-</div>
+
 <!-- @todo: Proper Layout / Containers are testing objects -->
 <div class="container">
 	<div class="row">
@@ -41,14 +39,24 @@
 				<div>
 					<tr>
 						<td>{{principal.ID}}</td>
+<<<<<<< HEAD
 						<td ng-hide="editorEnabled{{principal.ID}}">{{principal.Name}}
 						</td>
 						<td ng-show="editorEnabled{{principal.ID}}">
+=======
+						<td ng-hide="e">{{principal.Name}}
+						</td>
+						<td ng-show="e">
+>>>>>>> e6b1afbd09f967b3a8cab4e2034cdfd8fbd58676
 							<input value="{{principal.Name}}"/>
 						</td>
 						<td>{{principal.CreatedBy}}</td>
 						<td>{{principal.Created}}</td>
+<<<<<<< HEAD
 						<td><button type="submit" class="btn btn-default" ng-click="editorEnabled4=test(editorEnabled4)">Modify</button></td>
+=======
+						<td><button type="submit" class="btn btn-default" ng-click="e=!e">Modify</button></td>
+>>>>>>> e6b1afbd09f967b3a8cab4e2034cdfd8fbd58676
 
 					</tr>				
 				</div>

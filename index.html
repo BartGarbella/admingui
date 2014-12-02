@@ -10,12 +10,16 @@
   	<script src="js/angular/angular-route.js"></script>
  	<script src="js/app.js"></script>
  	<script src="js/controllers.js"></script>
+ 	<script src="js/directives.js"></script>
 </head>
 <body>
+
 <div ng-app="paymentAdminApp">
-<div ng-view></div>
+	<div class="nav" ng-controller="NavCtrl">
+		<nav class="nav-menu" menu-data="menu"></nav>
+	</div>
+	<div ng-view></div>
 </div>
 
 </body>
-
 </html>
